@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Portfolio of Diyorbek Abdimalikov - Python Developer!">
+    <meta name="author" content="Devcrud">
+    <title>All Blogs</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'app/assets/vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="{% static 'app/assets/css/meyawo.css' %}">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+<!-- Page Navbar -->
+<nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+    <div class="container">
+        <a style="color: #695aa6;" class="logo" href="{% url 'index' %}">Diyorbek</a>
+        <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+            <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+            </div>
+        </a>
+    </div>
+</nav>
+
+<!-- blog section -->
+
+<section class="section" id="blog">
+    <!-- container -->
+    <div class="container text-center">
+        <h6 class="section-title mb-6">Blogs</h6>
+        <!-- blog-wrapper -->
+        {% for blog in blogs %}
+            <a href="{% url 'article' blog.id %}">
+            <div class="blog-card">
+            <div class="blog-card-header">
+                <img src="{{ blog.image.url }}" class="blog-card-img"
+                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+            </div>
+            <div class="blog-card-body">
+                <h5 class="blog-card-title">{{ blog.title }}</h5>
+
+                    <p class="blog-card-caption">
+                        <a href="#">By: {{ blog.writer }}</a>
+                        <a href="#"><i class="ti-heart text-danger"></i> 767</a>
+                        <a href="#"><i class="ti-comment"></i> 83</a>
+                    </p>
+                    <p>{{ blog.paragraph }}</p>
+            </div>
+        </div>
+            </a>
+        {% endfor %}
+        <!-- end of blog wrapper -->
+
+    </div><!-- end of container -->
+</section><!-- end of blog section -->
+
+<!-- contact section -->
+<section class="section" id="contact">
+    <div class="container text-center">
+        <p class="section-subtitle">How can you communicate?</p>
+        <h6 class="section-title mb-5">Contact Me</h6>
+        <!-- contact form -->
+        <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <input type="text" size="50" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group col-sm-6">
+                    <input type="email" class="form-control" placeholder="Enter Email" requried>
+                </div>
+                <div class="form-group col-sm-12">
+                        <textarea name="comment" id="comment" rows="6" class="form-control"
+                                  placeholder="Write Something"></textarea>
+                </div>
+                <div class="form-group col-sm-12 mt-3">
+                    <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
+                </div>
+            </div>
+        </form><!-- end of contact form -->
+    </div><!-- end of container -->
+</section><!-- end of contact section -->
+
+<!-- footer -->
+<div class="container">
+    <footer class="footer">
+        <div class="social-links text-center m-auto ml-sm-auto">
+            <a href="https://github.com/Diyorbek2204" target="_blank" class="link"><i class="ti-github"></i></a>
+            <a href="https://stackoverflow.com/users/21673171/diyorbek-abdimalikov" target="_blank" class="link"><i class="ti-stack-overflow"></i></a>
+            <a href="mailto:diyorbekabdimalikov88@gmail.com" target="_blank" class="link"><i class="ti-email"></i></a>
+            <a href="https://www.youtube.com/@DRThere/" target="_blank" class="link"><i class="ti-youtube"></i></a>
+            <a href="https://twitter.com/DRT_here" target="_blank" class="link"><i class="ti-twitter"></i></a>
+            <a href="https://www.reddit.com/user/DRThere" target="_blank" class="link"><i class="ti-reddit"></i></a>
+            <a href="https://www.instagram.com/drthere88/" target="_blank" class="link"><i class="ti-instagram"></i></a>
+        </div>
+    </footer>
+</div> <!-- end of page footer -->
+
+<!-- core  -->
+<script src="{% static 'app/assets/vendors/themify-icons' %}"></script>
+<script src="{% static 'app/assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
+
+<!-- bootstrap 3 affix -->
+<script src="{% static 'app/assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+<!-- Meyawo js -->
+<script src="{% static 'app/assets/js/meyawo.js' %}"></script>
+
+</body>
+
+</html>

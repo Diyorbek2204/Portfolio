@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from app.form import ContactForm
-from app.models import Skill, Blog, Contact
+from app.models import Skill, Blog
 
 
 def index_view(request):
